@@ -488,7 +488,7 @@
         cider-font-lock-dynamically nil ; use lsp semantic tokens
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil)
-  (add-hook 'cider-repl-mode-hook #'paredit-mode)
+  ;; (add-hook 'cider-repl-mode-hook #'paredit-mode)
   ;; use lsp
   (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point))))
 
