@@ -1,0 +1,6 @@
+* TODO SPC f s to save files
+* TODO Cider and clojure-mode
+* TODO aggressive indent
+* TODO flycheck and clj-kondo
+* TODO clojure-lsp
+* TODO evilify dired 
