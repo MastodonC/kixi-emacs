@@ -291,7 +291,7 @@
 ;              ("DEL" . vertico-directory-delete-char)
 ;              ("M-DEL" . vertico-directory-delete-word)))
 
-(use-package vertico-quite
+(use-package vertico-quick
   :after vertico
   :straight nil
   :bind (:map vertico-map
