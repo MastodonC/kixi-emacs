@@ -2,7 +2,7 @@
 ;; - https://gitlab.com/magus/mes
 ;; - https://github.com/corgi-emacs/corgi
 ;; - https://github.com/otfrom/otfrom-org-emacs
-;; - https://github.com/mpenet/emax/blob/master/init.el 
+;; - https://github.com/mpenet/emax/blob/master/init.el
 ;; - https://github.com/benjamin-asdf/dotfiles/blob/master/mememacs/.emacs-mememacs.d/init.el
 
 ;; Added early-init.el
@@ -432,7 +432,7 @@
 ;; (require 'kixi-projects)
 (use-package tabspaces
   :straight t
-  :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup. 
+  :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup.
   :commands (tabspaces-switch-or-create-workspace tabspaces-open-or-create-project-and-workspace)
   :custom
   (tabspaces-use-filtered-buffers-as-default t)
