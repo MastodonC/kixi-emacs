@@ -76,6 +76,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evil root
 (use-package evil
+  :demand t
   :straight t
   :init
   (setq evil-want-integration t
@@ -135,6 +136,7 @@
 
 (use-package general
   :straight t
+  :demand t
   :after evil
   :config
   (general-evil-setup)
