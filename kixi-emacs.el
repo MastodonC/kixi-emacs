@@ -571,3 +571,8 @@
 
 (use-package consult-lsp
   :straight t)
+
+(provide 'kixi-emacs)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; kixi-emacs.el ends here
