@@ -295,7 +295,7 @@
 ;;   (vertico-buffer-mode))
 
 (use-package vertico-directory
-  :after vertico
+  :requires vertico
   :ensure nil
   :bind (:map vertico-map
               ("C-h" . vertico-directory-up)
@@ -417,15 +417,12 @@
   :custom
   (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
   :config
- 
-(kixi-leader-def
-  :infix "g"
-  "" '(:ignore t :wk "git")
-  "c" 'magit-clone
-  "i" 'magit-init
-  "s" 'magit-status)
-
- )
+  (kixi-leader-def
+   :infix "g"
+   "" '(:ignore t :wk "git")
+   "c" 'magit-clone
+   "i" 'magit-init
+   "s" 'magit-status))
 
 (use-package forge
   :straight t
@@ -469,29 +466,26 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'kixi-org)
-(defun kixi-org-mode-setup ()
-  (org-indent-mode) 
-  (variable-pitch-mode 1)
-  (visual-line-mode 1))
+;; (defun kixi-org-mode-setup ()
+;;   (org-indent-mode) 
+;;   (variable-pitch-mode 1)
+;;   (visual-line-mode 1))
 
 (use-package org
   :requires (general evil)
-  :hook (org-mode . kixi-org-mode-setup)
+  ;; :hook (org-mode . kixi-org-mode-setup)
   :config
- 
-(general-create-definer kixi-org-mode-leader-def
-  :states 'normal
-  :keymaps 'org-mode-map
-  :prefix ",")
-
-(kixi-org-mode-leader-def
-  :infix "t"
-  "" '(:ignore t :wk "toggle")
-  "l" 'org-toggle-link-display
-  "t" 'org-todo
-  "c" 'org-toggle-checkbox)
-
- )
+  (general-create-definer kixi-org-mode-leader-def
+                          :states 'normal
+                          :keymaps 'org-mode-map
+                          :prefix ",")
+  
+  (kixi-org-mode-leader-def
+   :infix "t"
+   "" '(:ignore t :wk "toggle")
+   "l" 'org-toggle-link-display
+   "t" 'org-todo
+   "c" 'org-toggle-checkbox))
 
 (use-package org-bullets
   :straight t
