@@ -407,9 +407,8 @@
   :config
   (smartparens-global-mode t)
   (show-smartparens-global-mode t)
-  (setq sp-show-pair-from-inside t))
-
-(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+  (setq sp-show-pair-from-inside t)
+  :hook emacs-lisp-mode)
 
 (use-package magit
   :straight t
