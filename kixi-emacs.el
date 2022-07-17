@@ -470,12 +470,12 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'kixi-org)
 (defun kixi-org-mode-setup ()
-  (org-indent-mode)
+  (org-indent-mode) 
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
 (use-package org
-  :after (general)
+  :after (general evil)
   :hook (org-mode . kixi-org-mode-setup)
   :config
  
