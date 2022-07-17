@@ -242,7 +242,7 @@
 
 (use-package evil-lisp-state
   :straight t
-  :after (evil general)
+  :after (evil general smartparens)
   :config
  
 (kixi-leader-def
