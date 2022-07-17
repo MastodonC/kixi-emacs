@@ -191,23 +191,23 @@
 
 (use-package evil-collection
   :straight t
-  :after evil
+  :requires evil
   :config
   (evil-collection-init))
 
 (use-package evil-anzu
   :straight t
-  :after evil)
+  :requires evil)
 
 (use-package evil-commentary
   :straight t
-  :after evil
+  :requires evil
   :config
   (evil-commentary-mode))
 
 (use-package evil-snipe
   :straight t
-  :after evil
+  :requires evil
   :hook (magit-mode-hook . turn-off-evil-snipe-override-mode)
   :config
   (evil-snipe-mode 1)
@@ -215,22 +215,22 @@
 
 (use-package evil-surround
   :straight t
-  :after evil
+  :requires evil
   :config
   (global-evil-surround-mode 1))
 
 ;; (use-package evil-unimpaired ; not available?
-;;   :after evil)
+;;   :requires evil)
 
 (use-package evil-mc
   :straight t
-  :after evil
+  :requires evil
   :config
   (global-evil-mc-mode 1))
 
 (use-package evil-easymotion
   :straight t
-  :after (evil general)
+  :requires (evil general)
   :config
  (general-def :keymaps 'evilem-map
   "j" 'evil-avy-goto-char-timer)
@@ -242,7 +242,7 @@
 
 (use-package evil-lisp-state
   :straight t
-  :after (evil general smartparens)
+  :requires (evil general smartparens)
   :config
  
 (kixi-leader-def
@@ -429,7 +429,7 @@
 
 (use-package forge
   :straight t
-  :after magit)
+  :requires magit)
 
 (use-package tree-sitter
   :straight t
@@ -439,7 +439,7 @@
 
 (use-package tree-sitter-langs
   :straight t
-  :after tree-sitter)
+  :requires tree-sitter)
 
 ;; (provide 'kixi-dev)
 
@@ -447,7 +447,7 @@
 ;; (require 'kixi-projects)
 (use-package tabspaces
   :straight t
-  :after general
+  :requires general
   :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup.
   :commands (tabspaces-switch-or-create-workspace tabspaces-open-or-create-project-and-workspace)
   :custom
@@ -475,7 +475,7 @@
   (visual-line-mode 1))
 
 (use-package org
-  :after (general evil)
+  :requires (general evil)
   :hook (org-mode . kixi-org-mode-setup)
   :config
  
@@ -559,7 +559,7 @@
 
 (use-package lsp-ui
   :straight t
-  :after lsp-mode
+  :requires lsp-mode
   :commands lsp-ui-mode
   :config
   (setq lsp-ui-peek-list-width 60
