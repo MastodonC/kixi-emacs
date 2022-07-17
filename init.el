@@ -264,7 +264,15 @@
 ;; (require 'kixi-completion)
 ;; ********** Completion
 (use-package vertico
-  :straight t
+  :straight (vertico :files (:defaults "extensions/*")
+                     :includes (vertico-buffer
+                                vertico-directory
+                                vertico-flat
+                                vertico-indexed
+                                vertico-mouse
+                                vertico-quick
+                                vertico-repeat
+                                vertico-reverse))
   :init
   (setq vertico-cycle t)
   (vertico-mode)
