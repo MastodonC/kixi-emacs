@@ -285,14 +285,14 @@
 ;;                           '(display-buffer-below-selected (window-height . 13)))
 ;;   (vertico-buffer-mode))
 
-; (use-package vertico-directory
-;   :after vertico
-;   :ensure nil
-;  :bind (:map vertico-map
-;              ("C-h" . vertico-directory-up)
-;              ("RET" . vertico-directory-enter)
-;              ("DEL" . vertico-directory-delete-char)
-;              ("M-DEL" . vertico-directory-delete-word)))
+(use-package vertico-directory
+  :after vertico
+  :ensure nil
+  :bind (:map vertico-map
+              ("C-h" . vertico-directory-up)
+              ("RET" . vertico-directory-enter)
+              ("DEL" . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word)))
 
 (use-package vertico-quick
   :after vertico
