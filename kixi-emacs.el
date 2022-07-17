@@ -139,36 +139,36 @@
   :config
   (general-evil-setup))
 
-(general-create-definer kixi/leader-def
+(general-create-definer kixi-leader-def
   :keymaps '(normal insert visual emacs)
   :prefix "SPC"
   :non-normal-prefix "M-SPC")
 
-(kixi/leader-def
+(kixi-leader-def
   "SPC" '(execute-extended-command :wk "M-x")
   "TAB" '(mode-line-other-buffer :wk "last buffer")
   "!" 'shell-command
   "u" 'universal-argument)
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "b"
   "" '(:ignore t :wk "buffers")
   "b" '(consult-buffer :wk "switch")
   "d" '(kill-this-buffer :wk "kill")
   "e" '(erase-buffer :wk "erase"))
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "E"
   "" '(:ignore t :wk "Emacs")
   "u" '(package-update-all :wk "update packages"))
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "f"
   "" '(:ignore t :wk "files")
   "f" 'find-file
   "r" '(recentf-open :wk "recent"))
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "h"
   "" '(:ignore t :wk "help/desc")
   "f" 'describe-function
@@ -178,7 +178,7 @@
   "v" 'describe-variable
   "w" 'woman)
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "q"
   "" '(:ignore t :wk "quit")
   "r" 'restart-emacs
@@ -235,14 +235,14 @@
 (general-def :keymaps 'evilem-map
   "j" 'evil-avy-goto-char-timer)
 
-(kixi/leader-def
+(kixi-leader-def
   "j" '(:keymap evilem-map :wk "evilem"))
 
 (use-package evil-lisp-state
   :straight t
   :after evil)
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "k"
   "" '(:ignore t :wk "lisp")
   "$" 'sp-end-of-sexp
@@ -427,7 +427,7 @@
   :straight t
   :after tree-sitter)
 
-(kixi/leader-def
+(kixi-leader-def
   :infix "g"
   "" '(:ignore t :wk "git")
   "c" 'magit-clone
@@ -451,7 +451,7 @@
 (general-def :keymaps 'project-prefix-map
   "o" '(tabspaces-open-or-create-project-and-workspace :wk "open"))
 
-(kixi/leader-def
+(kixi-leader-def
   ;; "t" '(:keymap tabspaces-command-map :package tabspaces :wk "tabs") ;; I really don't want to clash with toggle
   "p" '(:keymap project-prefix-map :wk "projs"))
 
@@ -459,13 +459,13 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'kixi-org)
-(defun kixi/org-mode-setup ()
+(defun kixi-org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
   (visual-line-mode 1))
 
 (use-package org
-  :hook (org-mode . kixi/org-mode-setup))
+  :hook (org-mode . kixi-org-mode-setup))
 
 (use-package org-bullets
   :straight t
@@ -473,12 +473,12 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-(general-create-definer kixi/org-mode-leader-def
+(general-create-definer kixi-org-mode-leader-def
   :states 'normal
   :keymaps 'org-mode-map
   :prefix ",")
 
-(kixi/org-mode-leader-def
+(kixi-org-mode-leader-def
   :infix "t"
   "" '(:ignore t :wk "toggle")
   "l" 'org-toggle-link-display
