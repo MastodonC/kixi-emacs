@@ -137,8 +137,8 @@
   :straight t
   :after evil
   :config
-  (general-evil-setup))
-
+  (general-evil-setup)
+  
 (general-create-definer kixi-leader-def
   :keymaps '(normal insert visual emacs)
   :prefix "SPC"
@@ -182,7 +182,7 @@
   :infix "q"
   "" '(:ignore t :wk "quit")
   "r" 'restart-emacs
-  "q" 'kill-emacs)
+  "q" 'kill-emacs))
 
 ;; (provide 'kixi-usability)
 
@@ -230,18 +230,21 @@
 
 (use-package evil-easymotion
   :straight t
-  :after evil)
-
-(general-def :keymaps 'evilem-map
+  :after (evil general)
+  :config
+ (general-def :keymaps 'evilem-map
   "j" 'evil-avy-goto-char-timer)
 
 (kixi-leader-def
   "j" '(:keymap evilem-map :wk "evilem"))
 
+ )
+
 (use-package evil-lisp-state
   :straight t
-  :after evil)
-
+  :after (evil general)
+  :config
+ 
 (kixi-leader-def
   :infix "k"
   "" '(:ignore t :wk "lisp")
@@ -258,6 +261,7 @@
   "L" 'sp-forward-sexp
   "w" '((lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "(")) :wk "wrap"))
 
+ )
 ;; (provide 'kixi-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -409,9 +413,20 @@
 
 (use-package magit
   :straight t
+  :after (general)
   :commands magit-status
   :custom
-  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
+  (magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1)
+  :config
+ 
+(kixi-leader-def
+  :infix "g"
+  "" '(:ignore t :wk "git")
+  "c" 'magit-clone
+  "i" 'magit-init
+  "s" 'magit-status)
+
+ )
 
 (use-package forge
   :straight t
@@ -427,33 +442,29 @@
   :straight t
   :after tree-sitter)
 
-(kixi-leader-def
-  :infix "g"
-  "" '(:ignore t :wk "git")
-  "c" 'magit-clone
-  "i" 'magit-init
-  "s" 'magit-status)
-
 ;; (provide 'kixi-dev)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'kixi-projects)
 (use-package tabspaces
   :straight t
+  :after general
   :hook (after-init . tabspaces-mode) ;; use this only if you want the minor-mode loaded at startup.
   :commands (tabspaces-switch-or-create-workspace tabspaces-open-or-create-project-and-workspace)
   :custom
   (tabspaces-use-filtered-buffers-as-default t)
   (tabspaces-default-tab "Default")
   (tabspaces-remove-to-default t)
-  (tabspaces-include-buffers '("*scratch*")))
-
-(general-def :keymaps 'project-prefix-map
+  (tabspaces-include-buffers '("*scratch*"))
+  :config
+ (general-def :keymaps 'project-prefix-map
   "o" '(tabspaces-open-or-create-project-and-workspace :wk "open"))
 
 (kixi-leader-def
   ;; "t" '(:keymap tabspaces-command-map :package tabspaces :wk "tabs") ;; I really don't want to clash with toggle
   "p" '(:keymap project-prefix-map :wk "projs"))
+
+ )
 
 ;; (provide 'kixi-projects)
 
@@ -465,14 +476,10 @@
   (visual-line-mode 1))
 
 (use-package org
-  :hook (org-mode . kixi-org-mode-setup))
-
-(use-package org-bullets
-  :straight t
-  :hook (org-mode . org-bullets-mode)
-  :custom
-  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
-
+  :after (general)
+  :hook (org-mode . kixi-org-mode-setup)
+  :config
+ 
 (general-create-definer kixi-org-mode-leader-def
   :states 'normal
   :keymaps 'org-mode-map
@@ -484,6 +491,14 @@
   "l" 'org-toggle-link-display
   "t" 'org-todo
   "c" 'org-toggle-checkbox)
+
+ )
+
+(use-package org-bullets
+  :straight t
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; (provide 'kixi-org)
 
