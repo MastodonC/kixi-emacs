@@ -308,6 +308,15 @@
 (straight-use-package 'consult-lsp)
 (require 'consult-lsp)
 
+;; smartparens
+(straight-use-package 'smartparens)
+(require 'smartparens-config)
+(smartparens-global-mode t)
+(show-smartparens-global-mode t)
+(setq sp-show-pair-from-inside t)
+
+(add-hook 'lisp-mode-hook #'smartparens)
+
 (provide 'kixi-emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
