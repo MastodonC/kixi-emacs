@@ -276,11 +276,13 @@
                      :includes (vertico-buffer
                                 vertico-directory
                                 vertico-flat
+                                vertico-grid
                                 vertico-indexed
                                 vertico-mouse
                                 vertico-quick
                                 vertico-repeat
-                                vertico-reverse))
+                                vertico-reverse
+                                vertico-unobtrusive))
   :init
   (setq vertico-cycle t)
   (vertico-mode)
