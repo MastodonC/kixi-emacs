@@ -35,8 +35,8 @@
 ;;   :hook ((prog-mode conf-mode) . display-line-numbers-mode)
 ;;   :custom (display-line-numbers-width 3))
 (require 'display-line-numbers)
-(add-hook 'prog-mode #'display-line-numbers-mode)
-(setq display-line-numbers-width 3)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
+(customize-set-variable 'display-line-numbers-width 3)
 
 ;; Disable line numbers for some modes
 (dolist (mode '(org-mode-hook
@@ -122,7 +122,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; rainbow-delimiters
 (straight-use-package 'rainbow-delimiters)
-(add-hook 'prog-mode #'rainbow-delimiters-mode)
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 (provide 'kixi-emacs)
 
