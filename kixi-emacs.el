@@ -105,9 +105,15 @@
 (setq which-key-idle-delay 0.7)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; doom theme and modeline
-(straight-use-package 'doom-themes)
-(load-theme 'doom-nord t)
+;; theme and modeline
+;; (straight-use-package 'doom-themes)
+;; (load-theme 'doom-nord t)
+(straight-use-package 'modus-themes)
+(setq modus-themes-italic-constructs t
+        modus-themes-bold-constructs nil
+        modus-themes-region '(bg-only no-extend))
+(modus-themes-load-themes)
+(modus-themes-load-vivendi)
 
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
