@@ -102,7 +102,7 @@
 ;; which-key
 (straight-use-package 'which-key)
 (which-key-mode)
-(which-key-idle-delay 0.7)
+(setq which-key-idle-delay 0.7)
 
 (provide 'kixi-emacs)
 
