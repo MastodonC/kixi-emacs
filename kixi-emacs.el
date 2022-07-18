@@ -77,11 +77,6 @@
 ;; (provide 'kixi-basics)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; magit
-(straight-use-package 'magit)
-(require 'magit)
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evil
 (setq evil-want-integration t
       evil-want-keybinding nil
@@ -183,6 +178,17 @@
 ;; Yet more evil
 (straight-use-package 'evil-collection)
 (evil-collection-init)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; magit
+(straight-use-package 'magit)
+(require 'magit)
+(kixi-leader-def
+   :infix "g"
+   "" '(:ignore t :wk "git")
+   "c" 'magit-clone
+   "i" 'magit-init
+   "s" 'magit-status)
 
 
 (provide 'kixi-emacs)
