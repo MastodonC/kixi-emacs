@@ -576,6 +576,13 @@
 (use-package consult-lsp
   :straight t)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Start me up
+
+;;;###autoload
+(defun kixi-emacs-init ()
+  (evil-mode 1))
+
 (provide 'kixi-emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
