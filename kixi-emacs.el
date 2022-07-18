@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil))
+;; Package-Requires: ((straight) (magit) (evil) (which-key))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -97,6 +97,12 @@
 
 (evil-set-initial-state 'messages-buffer-mode 'normal)
 (evil-set-initial-state 'dashboard-mode 'normal)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; which-key
+(straight-use-package 'which-key)
+(which-key-mode)
+(which-key-idle-delay 0.7)
 
 (provide 'kixi-emacs)
 
