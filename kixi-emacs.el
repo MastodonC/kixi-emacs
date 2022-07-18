@@ -155,7 +155,9 @@
  :infix "f"
  "" '(:ignore t :wk "files")
  "f" 'find-file
- "r" '(recentf-open :wk "recent"))
+ "r" '(recentf-open :wk "recent")
+ "s" 'save-buffer
+ "S" 'save-some-buffers)
 
 (kixi-leader-def
  :infix "h"
