@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (doom-modeline))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (doom-modeline) (rainbow-delimiters))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -112,6 +112,11 @@
 (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 (customize-set-variable 'doom-modeline-height 15)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; rainbow-delimiters
+(straight-use-package 'rainbow-delimiters)
+(add-hook 'prog-mode #'rainbow-delimiters-mode)
 
 (provide 'kixi-emacs)
 
