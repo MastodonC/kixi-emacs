@@ -104,6 +104,15 @@
 (which-key-mode)
 (setq which-key-idle-delay 0.7)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; doom theme and modeline
+(straight-use-package 'doom-themes)
+(load-theme 'doom-nord t)
+
+(straight-use-package 'doom-modeline)
+(doom-modeline-mode 1)
+(customize-set-variable 'doom-modeline-height 15)
+
 (provide 'kixi-emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
