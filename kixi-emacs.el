@@ -242,17 +242,17 @@
 (add-hook 'corfu-mode-hook #'corfu-doc-mode)
 
 (straight-use-package
- '(popon :type git :repo "https://codeberg.org/akib/emacs-popon.git")) 
+ '(popon :type git :repo "https://codeberg.org/akib/emacs-popon.git"))
 (require 'popon)
 
-(straight-use-package 
+(straight-use-package
  '(corfu-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
 (require 'corfu-terminal)
 (unless (display-graphic-p)
     (corfu-terminal-mode +1))
 
 (straight-use-package
- '(corfu-doc-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-doc-terminal.git")) 
+ '(corfu-doc-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-doc-terminal.git"))
 (require 'corfu-doc-terminal)
 (unless (display-graphic-p)
     (corfu-doc-terminal-mode +1))
