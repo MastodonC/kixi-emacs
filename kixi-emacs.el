@@ -1,7 +1,8 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (use-package) (display-line-numbers) (evil) (doom-themes) (doom-modeline) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-doc) (cape) (smartparens) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp))
+;; WAS-Package-Requires: ((straight) (magit) (use-package) (display-line-numbers) (evil) (doom-themes) (doom-modeline) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-doc) (cape) (smartparens) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp))
+;; Package-Requires: ((straight) (magit) (diplay-line-numbers) (evil) (doom-themes) (doom-modeline) (general) (which-key) (evil-collection))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -122,10 +123,13 @@
 ;;   :init (load-theme 'doom-nord t))
 
 (straight-use-package 'all-the-icons)
+(when (display-graphic-p)
+  (require 'all-the-icons))
 ;; (use-package all-the-icons
 ;;   :straight t)
 
 (straight-use-package 'doom-modeline)
+(doom-modeline-mode 1)
 ;; (use-package doom-modeline
 ;;   :straight t
 ;;   :init (doom-modeline-mode 1)
