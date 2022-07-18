@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (use-package) (display-line-numbers) (evil) (doom-themes) (doom-modeline) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-doc) (cape) (smartparens) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp)) 
+;; Package-Requires: ((straight) (magit) (use-package) (display-line-numbers) (evil) (doom-themes) (doom-modeline) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-doc) (cape) (smartparens) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -142,51 +142,51 @@
   :after evil
   :config
   (general-evil-setup)
-  
-(general-create-definer kixi-leader-def
-  :keymaps '(normal insert visual emacs)
-  :prefix "SPC"
-  :non-normal-prefix "M-SPC")
 
-(kixi-leader-def
-  "SPC" '(execute-extended-command :wk "M-x")
-  "TAB" '(mode-line-other-buffer :wk "last buffer")
-  "!" 'shell-command
-  "u" 'universal-argument)
+  (general-create-definer kixi-leader-def
+                          :keymaps '(normal insert visual emacs)
+                          :prefix "SPC"
+                          :non-normal-prefix "M-SPC")
 
-(kixi-leader-def
-  :infix "b"
-  "" '(:ignore t :wk "buffers")
-  "b" '(consult-buffer :wk "switch")
-  "d" '(kill-this-buffer :wk "kill")
-  "e" '(erase-buffer :wk "erase"))
+  (kixi-leader-def
+   "SPC" '(execute-extended-command :wk "M-x")
+   "TAB" '(mode-line-other-buffer :wk "last buffer")
+   "!" 'shell-command
+   "u" 'universal-argument)
 
-(kixi-leader-def
-  :infix "E"
-  "" '(:ignore t :wk "Emacs")
-  "u" '(package-update-all :wk "update packages"))
+  (kixi-leader-def
+   :infix "b"
+   "" '(:ignore t :wk "buffers")
+   "b" '(consult-buffer :wk "switch")
+   "d" '(kill-this-buffer :wk "kill")
+   "e" '(erase-buffer :wk "erase"))
 
-(kixi-leader-def
-  :infix "f"
-  "" '(:ignore t :wk "files")
-  "f" 'find-file
-  "r" '(recentf-open :wk "recent"))
+  (kixi-leader-def
+   :infix "E"
+   "" '(:ignore t :wk "Emacs")
+   "u" '(package-update-all :wk "update packages"))
 
-(kixi-leader-def
-  :infix "h"
-  "" '(:ignore t :wk "help/desc")
-  "f" 'describe-function
-  "i" 'info-display-manual
-  "k" 'describe-key
-  "m" 'describe-mode
-  "v" 'describe-variable
-  "w" 'woman)
+  (kixi-leader-def
+   :infix "f"
+   "" '(:ignore t :wk "files")
+   "f" 'find-file
+   "r" '(recentf-open :wk "recent"))
 
-(kixi-leader-def
-  :infix "q"
-  "" '(:ignore t :wk "quit")
-  "r" 'restart-emacs
-  "q" 'kill-emacs))
+  (kixi-leader-def
+   :infix "h"
+   "" '(:ignore t :wk "help/desc")
+   "f" 'describe-function
+   "i" 'info-display-manual
+   "k" 'describe-key
+   "m" 'describe-mode
+   "v" 'describe-variable
+   "w" 'woman)
+
+  (kixi-leader-def
+   :infix "q"
+   "" '(:ignore t :wk "quit")
+   "r" 'restart-emacs
+   "q" 'kill-emacs))
 
 ;; (provide 'kixi-usability)
 
@@ -248,24 +248,24 @@
   :straight t
   :after (evil general smartparens)
   :config
- 
-(kixi-leader-def
-  :infix "k"
-  "" '(:ignore t :wk "lisp")
-  "$" 'sp-end-of-sexp
-  "(" '(evil-lisp-state-insert-sexp-before :wk "insert-sexp-before")
-  ")" '(evil-lisp-state-insert-sexp-after :wk "insert-sexp-after")
-  "a" 'sp-absorb-sexp
-  "b" 'sp-forward-barf-sexp
-  "h" 'sp-backward-symbol
-  "j" 'evil-next-close-paren
-  "k" 'evil-previous-open-paren
-  "l" 'sp-forward-symbol
-  "H" 'sp-backward-sexp
-  "L" 'sp-forward-sexp
-  "w" '((lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "(")) :wk "wrap"))
 
- )
+  (kixi-leader-def
+   :infix "k"
+   "" '(:ignore t :wk "lisp")
+   "$" 'sp-end-of-sexp
+   "(" '(evil-lisp-state-insert-sexp-before :wk "insert-sexp-before")
+   ")" '(evil-lisp-state-insert-sexp-after :wk "insert-sexp-after")
+   "a" 'sp-absorb-sexp
+   "b" 'sp-forward-barf-sexp
+   "h" 'sp-backward-symbol
+   "j" 'evil-next-close-paren
+   "k" 'evil-previous-open-paren
+   "l" 'sp-forward-symbol
+   "H" 'sp-backward-sexp
+   "L" 'sp-forward-sexp
+   "w" '((lambda (&optional arg) (interactive "P") (sp-wrap-with-pair "(")) :wk "wrap"))
+
+  )
 ;; (provide 'kixi-evil)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -462,7 +462,7 @@
  (general-def :keymaps 'project-prefix-map
   "o" '(tabspaces-open-or-create-project-and-workspace :wk "open"))
 
-(kixi-leader-def
+ (kixi-leader-def
   ;; "t" '(:keymap tabspaces-command-map :package tabspaces :wk "tabs") ;; I really don't want to clash with toggle
   "p" '(:keymap project-prefix-map :wk "projs"))
 
@@ -473,7 +473,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; (require 'kixi-org)
 ;; (defun kixi-org-mode-setup ()
-;;   (org-indent-mode) 
+;;   (org-indent-mode)
 ;;   (variable-pitch-mode 1)
 ;;   (visual-line-mode 1))
 
@@ -485,7 +485,7 @@
                           :states 'normal
                           :keymaps 'org-mode-map
                           :prefix ",")
-  
+
   (kixi-org-mode-leader-def
    :infix "t"
    "" '(:ignore t :wk "toggle")
@@ -581,7 +581,28 @@
 
 ;;;###autoload
 (defun kixi-emacs-init ()
-  (evil-mode 1))
+  (evil-mode 1)
+  (load-theme 'doom-nord t)
+  (doom-modeline-mode 1)
+  (which-key-mode)
+  (doom-modeline-mode 1)
+  (general-evil-setup)
+  (evil-collection-init)
+  (evil-commentary-mode)
+  (evil-snipe-mode 1)
+  (evil-snipe-override-mode 1)
+  (global-evil-surround-mode 1)
+  (global-evil-mc-mode 1)
+  (vertico-mode)
+  (marginalia-mode)
+  (global-corfu-mode)
+  (unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+  (unless (display-graphic-p)
+    (corfu-doc-terminal-mode +1))
+  (smartparens-global-mode t)
+  (show-smartparens-global-mode t)
+  (global-tree-sitter-mode))
 
 (provide 'kixi-emacs)
 
