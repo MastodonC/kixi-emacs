@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((use-package) (display-line-numbers) (evil) (doom-themes) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-terminal) (corfu-doc) (corfu-doc-terminal) (cape) (smartparens) (magit) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp)) 
+;; Package-Requires: ((magit) (use-package) (display-line-numbers) (evil) (doom-themes) (all-the-icons) (rainbow-delimiters) (which-key) (helpful) (general) (evil-collection) (evil-anzu) (evil-commentary) (evil-snipe) (evil-surround) (evil-mc) (evil-easymotion) (evil-lisp-state) (vertico) (orderless) (marginalia) (consult) (embark) (embark-consult) (corfu) (corfu-doc) (cape) (smartparens) (forge) (tree-sitter) (tree-sitter-langs) (tabspaces) (org) (org-bullets) (cider) (lsp-mode) (lsp-ui) (lsp-treemacs) (consult-lsp)) 
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
