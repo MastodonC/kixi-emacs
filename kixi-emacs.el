@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -191,6 +191,78 @@
    "c" 'magit-clone
    "i" 'magit-init
    "s" 'magit-status)
+
+;; vertico
+(setq vertico-cycle t)
+(straight-use-package '( vertico :files (:defaults "extensions/*")
+                         :includes (vertico-buffer
+                                    vertico-directory
+                                    vertico-flat
+                                    vertico-indexed
+                                    vertico-mouse
+                                    vertico-quick
+                                    vertico-repeat
+                                    vertico-reverse)))
+(require 'vertico)
+(vertico-mode)
+(with-eval-after-load 'evil
+  (define-key vertico-map (kbd "C-j") 'vertico-next)
+  (define-key vertico-map (kbd "C-k") 'vertico-previous))
+
+(setq completion-styles '(orderless basic)
+        completion-category-defaults nil
+        completion-category-overrides '((file (styles partial-completion))))
+(straight-use-package 'orderless)
+(require 'orderless)
+
+(straight-use-package 'marginalia)
+(require 'marginalia)
+(marginalia-mode)
+
+(straight-use-package 'consult)
+(require 'consult)
+
+(straight-use-package 'embark)
+(require 'embark)
+
+(straight-use-package 'embark-consult)
+(add-hook 'embark-collect-mode-hook #'consult-preview-at-point)
+
+(straight-use-package 'corfu)
+(require 'corfu)
+(global-corfu-mode)
+(customize-set-variable 'corfu-cycle t)
+(customize-set-variable 'corfu-auto t)
+(customize-set-variable 'corfu-auto-delay 0.5)
+(customize-set-variable 'corfu-auto-prefix 2)
+(customize-set-variable 'corfu-echo-documentation 0.75)
+
+(straight-use-package 'corfu-doc)
+(require 'corfu-doc)
+(add-hook 'corfu-mode-hook #'corfu-doc-mode)
+
+(straight-use-package
+ '(popon :type git :repo "https://codeberg.org/akib/emacs-popon.git")) 
+(require 'popon)
+
+(straight-use-package 
+ '(corfu-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-terminal.git"))
+(require 'corfu-terminal)
+(unless (display-graphic-p)
+    (corfu-terminal-mode +1))
+
+(straight-use-package
+ '(corfu-doc-terminal :type git :repo "https://codeberg.org/akib/emacs-corfu-doc-terminal.git")) 
+(require 'corfu-doc-terminal)
+(unless (display-graphic-p)
+    (corfu-doc-terminal-mode +1))
+
+(straight-use-package 'cape)
+(require 'cape)
+(add-to-list 'completion-at-point-functions #'cape-file)
+(add-to-list 'completion-at-point-functions #'cape-dabbrev)
+(advice-add 'pcomplete-completions-at-point :around #'cape-wrap-silent)
+(advice-add 'pcomplete-completions-at-point :around #'cape-wrap-purify)
 
 
 (provide 'kixi-emacs)
