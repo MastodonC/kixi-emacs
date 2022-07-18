@@ -83,11 +83,12 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evil
-(straight-use-package 'evil)
-(require 'evil)
 (setq evil-want-integration t
       evil-want-keybinding nil
       evil-want-C-u-scroll t)
+(straight-use-package 'evil)
+(require 'evil)
+
 
 (evil-mode 1)
 (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
