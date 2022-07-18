@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (doom-modeline))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
