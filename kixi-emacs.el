@@ -84,6 +84,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; evil
 (straight-use-package 'evil)
+(require 'evil)
 (setq evil-want-integration t
       evil-want-keybinding nil
       evil-want-C-u-scroll t)
@@ -127,60 +128,61 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil General
-(with-eval-after-load "evil"
-  (straight-use-package 'general)
-  (general-evil-setup)
-  
-  (general-create-definer kixi-leader-def
-                          :keymaps '(normal insert visual emacs)
-                          :prefix "SPC"
-                          :non-normal-prefix "M-SPC")
+(straight-use-package 'general)
+(require 'general)
+(general-evil-setup)
 
-  (kixi-leader-def
-   "SPC" '(execute-extended-command :wk "M-x")
-   "TAB" '(mode-line-other-buffer :wk "last buffer")
-   "!" 'shell-command
-   "u" 'universal-argument)
+(general-create-definer kixi-leader-def
+  :keymaps '(normal insert visual emacs)
+  :prefix "SPC"
+  :non-normal-prefix "M-SPC")
 
-  (kixi-leader-def
-   :infix "b"
-   "" '(:ignore t :wk "buffers")
-   "b" '(consult-buffer :wk "switch")
-   "d" '(kill-this-buffer :wk "kill")
-   "e" '(erase-buffer :wk "erase"))
+(kixi-leader-def
+ "SPC" '(execute-extended-command :wk "M-x")
+ "TAB" '(mode-line-other-buffer :wk "last buffer")
+ "!" 'shell-command
+ "u" 'universal-argument)
 
-  (kixi-leader-def
-   :infix "E"
-   "" '(:ignore t :wk "Emacs")
-   "u" '(package-update-all :wk "update packages"))
+(kixi-leader-def
+ :infix "b"
+ "" '(:ignore t :wk "buffers")
+ "b" '(consult-buffer :wk "switch")
+ "d" '(kill-this-buffer :wk "kill")
+ "e" '(erase-buffer :wk "erase"))
 
-  (kixi-leader-def
-   :infix "f"
-   "" '(:ignore t :wk "files")
-   "f" 'find-file
-   "r" '(recentf-open :wk "recent"))
+(kixi-leader-def
+ :infix "E"
+ "" '(:ignore t :wk "Emacs")
+ "u" '(package-update-all :wk "update packages"))
 
-  (kixi-leader-def
-   :infix "h"
-   "" '(:ignore t :wk "help/desc")
-   "f" 'describe-function
-   "i" 'info-display-manual
-   "k" 'describe-key
-   "m" 'describe-mode
-   "v" 'describe-variable
-   "w" 'woman)
+(kixi-leader-def
+ :infix "f"
+ "" '(:ignore t :wk "files")
+ "f" 'find-file
+ "r" '(recentf-open :wk "recent"))
 
-  (kixi-leader-def
-   :infix "q"
-   "" '(:ignore t :wk "quit")
-   "r" 'restart-emacs
-   "q" 'kill-emacs))
+(kixi-leader-def
+ :infix "h"
+ "" '(:ignore t :wk "help/desc")
+ "f" 'describe-function
+ "i" 'info-display-manual
+ "k" 'describe-key
+ "m" 'describe-mode
+ "v" 'describe-variable
+ "w" 'woman)
+
+(kixi-leader-def
+ :infix "q"
+ "" '(:ignore t :wk "quit")
+ "r" 'restart-emacs
+ "q" 'kill-emacs)
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Yet more evil
-(with-eval-after-load "evil"
-  (straight-use-package 'evil-collection)
-  (evil-collection-init))
+(straight-use-package 'evil-collection)
+(evil-collection-init)
+
 
 (provide 'kixi-emacs)
 
