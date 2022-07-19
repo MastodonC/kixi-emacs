@@ -355,6 +355,7 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 (straight-use-package 'command-log-mode)
+(require 'command-log-mode)
 (global-command-log-mode 1)
 
 (straight-use-package 'csv-mode)
