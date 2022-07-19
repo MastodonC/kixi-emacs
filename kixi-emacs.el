@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (consult-flycheck) (flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (consult-flycheck) (flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -347,6 +347,21 @@
 (add-hook 'evil-org-mode-hook
           (lambda ()
               (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+
+(straight-use-package 'deadgrep)
+(require 'deadgrep)
+
+(require 'ediff)
+(setq ediff-window-setup-function 'ediff-setup-windows-plain)
+
+(straight-use-package 'command-log-mode)
+(global-command-log-mode 1)
+
+(straight-use-package 'csv-mode)
+(require 'csv-mode)
+
+(straight-use-package 'rainbow-mode)
+(require 'rainbow-mode)
 
 (provide 'kixi-emacs)
 
