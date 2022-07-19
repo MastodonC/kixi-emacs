@@ -129,9 +129,9 @@
 (general-evil-setup)
 
 (general-create-definer kixi-leader-def
-  :keymaps '(normal insert visual emacs)
-  :prefix "SPC"
-  :non-normal-prefix "M-SPC")
+  :keymaps :override
+  :states '(normal motion visual emacs) 
+  :prefix "SPC")
 
 (kixi-leader-def
  "SPC" '(execute-extended-command :wk "M-x")
