@@ -1,7 +1,7 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (consult-flycheck) (flycheck) (flycheck-clj-kondo) (highlight-indent-guides))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (consult-flycheck) (flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -337,7 +337,17 @@
 
 (straight-use-package 'highlight-indent-guides)
 (add-hook 'prog-mode #'highlight-indent-guides-mode)
- 
+
+;; org-mode
+(straight-use-package 'orgit)
+(require 'orgit)
+
+(straight-use-package 'evil-org)
+(add-hook 'org-mode-hook #'evil-org-mode)
+(add-hook 'evil-org-mode-hook
+          (lambda ()
+              (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+
 (provide 'kixi-emacs)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
