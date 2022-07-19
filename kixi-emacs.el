@@ -194,15 +194,15 @@
 
 ;; vertico
 (setq vertico-cycle t)
-(straight-use-package '( vertico :files (:defaults "extensions/*")
-                         :includes (vertico-buffer
-                                    vertico-directory
-                                    vertico-flat
-                                    vertico-indexed
-                                    vertico-mouse
-                                    vertico-quick
-                                    vertico-repeat
-                                    vertico-reverse)))
+;; (straight-use-package '( vertico :files (:defaults "extensions/*")
+;;                          :includes (vertico-buffer
+;;                                     vertico-directory
+;;                                     vertico-flat
+;;                                     vertico-indexed
+;;                                     vertico-mouse
+;;                                     vertico-quick
+;;                                     vertico-repeat
+;;                                     vertico-reverse)))
 (require 'vertico)
 (vertico-mode)
 (with-eval-after-load 'evil
