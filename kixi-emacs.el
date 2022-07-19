@@ -324,7 +324,7 @@
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
 
 ;; flycheck
-(straight-use-package 'flycheck-mode)
+(straight-use-package 'flycheck)
 
 (straight-use-package consult-flycheck)
 (require 'consult-flycheck)
@@ -380,3 +380,4 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; kixi-emacs.el ends here
+
