@@ -175,6 +175,11 @@
  "r" 'restart-emacs
  "q" 'kill-emacs)
 
+(kixi-leader-def
+  :infix "t"
+  "" '(:ignore t :wk "toggle")
+  "m" 'modus-themes-toggle
+  "l" 'display-line-numbers-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Yet more evil
@@ -357,6 +362,9 @@
 (straight-use-package 'command-log-mode)
 (require 'command-log-mode)
 (global-command-log-mode 1)
+(kixi-leader-def
+  :infix "t"
+  "c" '(clm/toggle-command-log-buffer :wk "command log"))
 
 (straight-use-package 'csv-mode)
 (require 'csv-mode)
