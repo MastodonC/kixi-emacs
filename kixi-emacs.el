@@ -129,7 +129,7 @@
 (general-evil-setup)
 
 (general-create-definer kixi-leader-def
-  :keymaps :override
+  :keymaps 'override
   :states '(normal motion visual emacs) 
   :prefix "SPC")
 
