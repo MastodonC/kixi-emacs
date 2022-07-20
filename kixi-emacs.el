@@ -134,11 +134,15 @@
   :states '(normal motion visual emacs)
   :prefix "SPC")
 
+(general-create-definer kixi-mode-leader-def
+  :states 'normal
+  :prefix ",")
+
 (kixi-leader-def
- "SPC" '(execute-extended-command :wk "M-x")
- "TAB" '(mode-line-other-buffer :wk "last buffer")
- "!" 'shell-command
- "u" 'universal-argument)
+  "SPC" '(execute-extended-command :wk "M-x")
+  "TAB" '(mode-line-other-buffer :wk "last buffer")
+  "!" 'shell-command
+  "u" 'universal-argument)
 
 (kixi-leader-def
  :infix "b"
@@ -326,10 +330,10 @@
 (add-hook 'lsp-completion-mode #'mpenet/lsp-mode-setup-completion)
 
 (dolist (m '(clojure-mode
-               clojurec-mode
-               clojurescript-mode
-               clojurex-mode))
-    (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
+             clojurec-mode
+             clojurescript-mode
+             clojurex-mode))
+  (add-to-list 'lsp-language-id-configuration `(,m . "clojure")))
 
 
 (setq lsp-ui-peek-list-width 60
@@ -359,19 +363,29 @@
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
-(general-create-definer kixi-sp-leader-def
-  :states 'normal-mode
-  :keymaps 'evil-cleverparens-mode-map
-  :prefix ",")
+;; (general-create-definer kixi-sp-leader-def
+;;   :states 'normal-mode
+;;   :keymaps 'evil-cleverparens-mode-map
+;;   :prefix ",")
 
-(kixi-sp-leader-def
- :infix "s" ;; s for sexp
- "" '(:ignore t :wk "sexp")
- "(" 'evil-cp-wrap-next-round
- "[" 'evil-cp-wrap-next-square
- "{" 'evil-cp-wrap-next-curly
- "r" 'sp-raise-sexp
- "R" 'sp-raise-form)
+(kixi-mode-leader-def
+  :definer 'minor-mode
+  :keymaps 'evil-cleverparens-mode
+  :infix "s" ;; s for sexp
+  "" '(:ignore t :wk "sexp")
+  "(" 'evil-cp-wrap-next-round
+  "[" 'evil-cp-wrap-next-square
+  "{" 'evil-cp-wrap-next-curly
+  "r" 'sp-raise-sexp
+  "R" 'sp-raise-form)
+
+;; why can't I make this look the the general definition above?
+;; (evil-define-minor-mode-key 'normal 'evil-cleverparens-mode
+;;   (kbd ", s (") 'evil-cp-wrap-next-round
+;;   (kbd ", s [") 'evil-cp-wrap-next-square
+;;   (kbd ", s {") 'evil-cp-wrap-next-curly
+;;   (kbd ", s r") 'sp-raise-sexp
+;;   (kbd ", s R") 'sp-raise-form)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; aggressive indent
