@@ -205,7 +205,15 @@
   "=" 'balance-windows)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
- ;; magit
+;; winner mode
+(require 'winner-mode)
+(kixi-leader-def
+  :infix "w"
+  "u" 'winner-undo
+  "r" 'winner-redo)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; magit
 (straight-use-package 'magit)
 
 (require 'magit)
