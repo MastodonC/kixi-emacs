@@ -1,6 +1,12 @@
-* TODO SPC f s to save files
-* TODO Cider and clojure-mode
-* TODO aggressive indent
-* TODO flycheck and clj-kondo
-* TODO clojure-lsp
-* TODO evilify dired 
+* DONE SPC f s to save files
+CLOSED: [2022-07-20 Wed 15:39]
+* DONE Cider and clojure-mode
+CLOSED: [2022-07-20 Wed 15:39]
+* DONE aggressive indent
+CLOSED: [2022-07-20 Wed 15:39]
+* DONE flycheck and clj-kondo
+CLOSED: [2022-07-20 Wed 15:39]
+* DONE clojure-lsp
+CLOSED: [2022-07-20 Wed 15:39]
+* DONE evilify dired 
+CLOSED: [2022-07-20 Wed 15:39]
