@@ -439,10 +439,21 @@
 ;;   "a" 'csv-align-fields
 ;;   "u" 'csv-unalign-fields)
 
-(general-evil-define-key '(normal visual) 'csv-mode-map
-  :prefix ","
-  "ca" 'csv-align-fields
-  "cu" 'csv-unalign-fields)
+;; (general-evil-define-key '(normal visual) 'csv-mode-map
+;;   :prefix ","
+;;   "ca" 'csv-align-fields
+;;   "cu" 'csv-unalign-fields)
+
+(general-create-definer kixi-csv-leader-def
+  :states '(normal visual)
+  :keymaps 'org-mode-map
+  :prefix ",")
+
+(kixi-csv-leader-def
+  :infix "c"
+  "" '(:ignore t :wk csv)
+  "a" 'csv-align-fields
+  "u" 'csv-unalign-fields)
 
 (straight-use-package 'rainbow-mode)
 (require 'rainbow-mode)
