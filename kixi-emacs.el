@@ -432,12 +432,17 @@
 
 (straight-use-package 'csv-mode)
 (require 'csv-mode)
-(kixi-mode-leader-def
-  :keymap 'csv-mode-map
-  :infix "c"
-  "" '(:ignore t :wk "csv")
-  "a" 'csv-align-fields
-  "u" 'csv-unalign-fields)
+;; (kixi-mode-leader-def
+;;   :keymap 'csv-mode-map
+;;   :infix "c"
+;;   "" '(:ignore t :wk "csv")
+;;   "a" 'csv-align-fields
+;;   "u" 'csv-unalign-fields)
+
+(general-evil-define-key '(normal visual) 'csv-mode-map
+  :prefix ","
+  "ca" 'csv-align-fields
+  "cu" 'csv-unalign-fields)
 
 (straight-use-package 'rainbow-mode)
 (require 'rainbow-mode)
