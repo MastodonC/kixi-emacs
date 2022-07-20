@@ -1,7 +1,8 @@
 ;;; kixi-emacs.el --- Base config for the Mastodon C emacs environment -*- lexical-binding: t -*-
 ;;
 ;; Filename: kixi-emacs.el
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify))
+
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify) (aggressive-indent) (evil-commentary))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -130,7 +131,7 @@
 
 (general-create-definer kixi-leader-def
   :keymaps 'override
-  :states '(normal motion visual emacs) 
+  :states '(normal motion visual emacs)
   :prefix "SPC")
 
 (kixi-leader-def
@@ -187,8 +188,26 @@
 (evil-collection-init)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; magit
+;; window movement
+(kixi-leader-def
+  :infix w
+  "" '(:ignore t :wk "window")
+  "h" 'windmove-left
+  "j" 'windmove-down
+  "k" 'windmove-up
+  "l" 'windmove-right
+  "H" 'windmove-swap-states-left
+  "J" 'windmove-swap-states-down
+  "K" 'windmove-swap-states-up
+  "L" 'windmove-swap-states-right
+  "-" 'split-window-below
+  "/" 'split-window-right
+  "=" '[balance-windows])
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+ ;; magit
 (straight-use-package 'magit)
+
 (require 'magit)
 (kixi-leader-def
    :infix "g"
@@ -328,6 +347,11 @@
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; aggressive indent
+(straight-use-package 'aggressive-indent)
+(global-aggressive-indent-mode 1)
+
 ;; flycheck
 (straight-use-package 'flycheck)
 
@@ -336,7 +360,7 @@
 
 (straight-use-package 'flycheck-clj-kondo)
 (require 'flycheck-clj-kondo)
- 
+
 (add-hook 'sh-mode-hook #'flycheck-mode)
 (add-hook 'clojure-mode-hook #'flycheck-mode)
 
@@ -372,6 +396,9 @@
 (straight-use-package 'rainbow-mode)
 (require 'rainbow-mode)
 
+(require 'evil-commentary)
+(evil-commentary-mode)
+
 (defun clerk-show ()
   (interactive)
   (save-buffer)
@@ -389,4 +416,3 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; kixi-emacs.el ends here
-
