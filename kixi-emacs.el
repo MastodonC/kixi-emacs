@@ -206,7 +206,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; winner mode
-(require 'winner-mode)
+(require 'winner)
 (kixi-leader-def
   :infix "w"
   "u" 'winner-undo
