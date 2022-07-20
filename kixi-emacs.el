@@ -202,7 +202,7 @@
   "L" 'windmove-swap-states-right
   "-" 'split-window-below
   "/" 'split-window-right
-  "=" '[balance-windows])
+  "=" 'balance-windows)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
  ;; magit
