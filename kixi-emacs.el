@@ -435,7 +435,7 @@
 
 (general-create-definer kixi-csv-leader-def
   :states '(normal visual)
-  :keymaps 'org-mode-map
+  :keymaps 'csv-mode-map
   :prefix ",")
 
 (kixi-csv-leader-def
