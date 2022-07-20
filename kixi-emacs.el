@@ -190,7 +190,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; window movement
 (kixi-leader-def
-  :infix w
+  :infix "w"
   "" '(:ignore t :wk "window")
   "h" 'windmove-left
   "j" 'windmove-down
