@@ -356,6 +356,19 @@
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
+(general-create-definer kixi-sp-leader-def
+  :states 'normal-mode
+  :keymaps 'smartparens-mode-map
+  :prefix ",")
+
+(kixi-sp-leader-def
+ :infix "s" ;; s for sexp
+ "" '(:ignore t :wk "sexp")
+ "(" 'evil-cp-wrap-next-round
+ "[" 'evil-cp-wrap-next-square
+ "{" 'evil-cp-wrap-next-curly
+ "r" 'sp-raise-sexp
+ "R" 'sp-raise-form)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; aggressive indent
