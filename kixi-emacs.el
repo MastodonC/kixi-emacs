@@ -350,6 +350,8 @@
 (add-hook 'lisp-mode-hook #'smartparens)
 
 ;; evil cleverparens
+;; see https://github.com/luxbock/evil-cleverparens/issues/58
+(customize-set-variable 'evil-cleverparens-use-additional-bindings nil)
 (straight-use-package 'evil-cleverparens)
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
