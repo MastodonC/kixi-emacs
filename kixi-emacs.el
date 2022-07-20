@@ -202,11 +202,14 @@
   "L" 'windmove-swap-states-right
   "-" 'split-window-below
   "/" 'split-window-right
-  "=" 'balance-windows)
+  "=" 'balance-windows
+  "d" 'delete-window
+  "D" 'delete-other-windows)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; winner mode
 (require 'winner)
+(winner-mode 1)
 (kixi-leader-def
   :infix "w"
   "u" 'winner-undo
