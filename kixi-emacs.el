@@ -358,7 +358,7 @@
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
 (general-create-definer kixi-sp-leader-def
   :states 'normal-mode
-  :keymaps 'smartparens-mode-map
+  :keymaps 'evil-cleverparens-mode-map
   :prefix ",")
 
 (kixi-sp-leader-def
