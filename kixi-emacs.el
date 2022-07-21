@@ -135,7 +135,6 @@
   :prefix "SPC")
 
 (general-create-definer kixi-mode-leader-def
-  :states 'normal
   :prefix ",")
 
 (kixi-leader-def
@@ -370,6 +369,7 @@
 
 (kixi-mode-leader-def
   :definer 'minor-mode
+  :states '(normal visual)
   :keymaps 'evil-cleverparens-mode
   :infix "s" ;; s for sexp
   "" '(:ignore t :wk "sexp")
