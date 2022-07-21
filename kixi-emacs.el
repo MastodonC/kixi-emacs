@@ -148,11 +148,12 @@
   "u" 'universal-argument)
 
 (kixi-leader-def
- :infix "b"
- "" '(:ignore t :wk "buffers")
- "b" '(consult-buffer :wk "switch")
- "d" '(kill-this-buffer :wk "kill")
- "e" '(erase-buffer :wk "erase"))
+  :infix "b"
+  "" '(:ignore t :wk "buffers")
+  "b" '(consult-buffer :wk "switch")
+  "d" '(kill-this-buffer :wk "kill")
+  "e" '(erase-buffer :wk "erase")
+  "r" '(revert-buffer :wk "revert"))
 
 (kixi-leader-def
  :infix "E"
