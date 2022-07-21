@@ -131,11 +131,15 @@
 
 (general-create-definer kixi-leader-def
   :keymaps 'override
-  :states '(normal motion visual emacs)
-  :prefix "SPC")
+  :states '(normal insert motion visual emacs)
+  :prefix "SPC"
+  :global-prefix "C-SPC")
 
 (general-create-definer kixi-mode-leader-def
-  :prefix ",")
+  :states '(normal visual)
+  :keymaps 'override
+  :prefix ","
+  :global-prefix "SPC m")
 
 (kixi-leader-def
   "SPC" '(execute-extended-command :wk "M-x")
