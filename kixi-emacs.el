@@ -427,7 +427,7 @@
 (append auto-mode-alist '("README\\.md" . gfm-mode))
 (require 'markdown-mode)
 
-(setq separedit-default-mode 'mardown-mode)
+(setq separedit-default-mode 'markdown-mode)
 (straight-use-package 'separedit)
 (require 'separedit)
 
