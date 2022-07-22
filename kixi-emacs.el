@@ -2,7 +2,7 @@
 ;;
 ;; Filename: kixi-emacs.el
 
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify) (aggressive-indent) (evil-commentary) (vterm))
+;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify) (aggressive-indent) (evil-commentary) (vterm) (separedit))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
@@ -419,7 +419,19 @@
 (add-hook 'org-mode-hook #'evil-org-mode)
 (add-hook 'evil-org-mode-hook
           (lambda ()
-              (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+            (evil-org-set-key-theme '(textobjects insert navigation additional shift todo heading))))
+
+;; commenting
+(setq separedit-default-mode 'mardown-mode)
+(straight-use-package 'separedit)
+(require 'separedit)
+
+(kixi-mode-leader-def
+  :keymaps 'prog-mode-map
+  "c" '(:ignore t :wk "comment")
+  "cd" 'comment-dwim
+  "ce" 'separedit)
+
 
 (straight-use-package 'deadgrep)
 (require 'deadgrep)
