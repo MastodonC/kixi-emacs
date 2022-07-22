@@ -411,6 +411,36 @@
 (straight-use-package 'highlight-indent-guides)
 (add-hook 'prog-mode #'highlight-indent-guides-mode)
 
+(kixi-mode-leader-def
+  :keymaps 'emacs-lisp-mode-map
+  :infix "e"
+  "" '(:ignore t :wk "eval")
+  "e" 'eval-last-sexp
+  "r" 'eval-region
+  "b" 'eval-buffer)
+
+(kixi-mode-leader-def
+  :keymaps 'clojure-mode-map
+  :infix "e"
+  "" '(:ignore t :wk "eval")
+  "e" 'cider-eval-last-sexp
+  "r" 'cider-eval-region
+  "b" 'cider-eval-buffer)
+
+(kixi-mode-leader-def
+  :keymaps 'clojure-mode-map
+  :infix "j"
+  "" '(:ignore t :wk "jack in")
+  "j" 'cider-jack-in-clj)
+
+(kixi-mode-leader-def
+  :keymaps 'prog-mode-map
+  :infix "g"
+  "" '(:ignore t :wk "go")
+  "g" 'xref-find-definitions
+  "b" 'xref-go-back)
+
+
 ;; org-mode
 (straight-use-package 'orgit)
 (require 'orgit)
@@ -433,10 +463,10 @@
 
 (kixi-mode-leader-def
   :keymaps 'prog-mode-map
-  "c" '(:ignore t :wk "comment")
-  "cd" 'comment-dwim
-  "ce" 'separedit)
-
+  :infix ";"
+  "" '(:ignore t :wk "comment")
+  ";" 'comment-dwim
+  "e" 'separedit)
 
 (straight-use-package 'deadgrep)
 (require 'deadgrep)
@@ -454,12 +484,7 @@
 (straight-use-package 'csv-mode)
 (require 'csv-mode)
 
-(general-create-definer kixi-csv-leader-def
-  :states '(normal visual)
-  :keymaps 'csv-mode-map
-  :prefix ",")
-
-(kixi-csv-leader-def
+(kixi-mode-leader-def
   :infix "c"
   "" '(:ignore t :wk csv)
   "a" 'csv-align-fields
