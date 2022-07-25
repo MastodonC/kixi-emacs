@@ -330,8 +330,8 @@
 (defun mpenet/lsp-mode-setup-completion ()
   (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
         '(flex)))
-(add-hook 'clojure-mode #'lsp)
-(add-hook 'lsp-completion-mode #'mpenet/lsp-mode-setup-completion)
+(add-hook 'clojure-mode-hook 'lsp)
+(add-hook 'lsp-completion-mode-hook #'mpenet/lsp-mode-setup-completion)
 
 (dolist (m '(clojure-mode
              clojurec-mode
@@ -409,7 +409,7 @@
 (add-hook 'clojure-mode-hook #'flycheck-mode)
 
 (straight-use-package 'highlight-indent-guides)
-(add-hook 'prog-mode #'highlight-indent-guides-mode)
+(add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
 
 (kixi-mode-leader-def
   :keymaps 'emacs-lisp-mode-map
