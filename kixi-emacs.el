@@ -485,8 +485,6 @@
 (require 'csv-mode)
 
 (kixi-mode-leader-def
-  :infix "c"
-  "" '(:ignore t :wk csv)
   "a" 'csv-align-fields
   "u" 'csv-unalign-fields)
 
