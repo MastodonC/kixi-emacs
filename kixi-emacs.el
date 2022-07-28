@@ -485,6 +485,7 @@
 (require 'csv-mode)
 
 (kixi-mode-leader-def
+  :keymaps 'csv-mode-map
   "a" 'csv-align-fields
   "u" 'csv-unalign-fields)
 
