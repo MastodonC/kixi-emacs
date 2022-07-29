@@ -419,6 +419,8 @@
 ;;   :keymaps 'evil-cleverparens-mode-map
 ;;   :prefix ",")
 
+(setq evil-move-beyond-eol t)
+
 (kixi-mode-leader-def
   :definer 'minor-mode
   :keymaps 'evil-cleverparens-mode
@@ -427,16 +429,14 @@
   "(" 'evil-cp-wrap-next-round
   "[" 'evil-cp-wrap-next-square
   "{" 'evil-cp-wrap-next-curly
-  "r" 'sp-raise-sexp
-  "R" 'sp-raise-form)
-
-;; why can't I make this look the the general definition above?
-;; (evil-define-minor-mode-key 'normal 'evil-cleverparens-mode
-;;   (kbd ", s (") 'evil-cp-wrap-next-round
-;;   (kbd ", s [") 'evil-cp-wrap-next-square
-;;   (kbd ", s {") 'evil-cp-wrap-next-curly
-;;   (kbd ", s r") 'sp-raise-sexp
-;;   (kbd ", s R") 'sp-raise-form)
+  "r" 'sp-splice-sexp
+  ">" 'sp-forward-slurp-sexp
+  "<" 'sp-backward-barf-sexp
+  "t" 'sp-transpose-sexp
+  "j" 'evil-cp-drag-foward
+  "k" 'evil-cp-drag-backward
+  "w" 'evil-cp-copy-paste-form
+  "q" 'sp-indent-defun)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; aggressive indent
