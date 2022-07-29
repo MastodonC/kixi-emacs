@@ -214,6 +214,14 @@
   "d" 'delete-window
   "D" 'delete-other-windows)
 
+(kixi-leader-def
+  :infix "w"
+  "x" '(:ignore t :wk "delete windows")
+  "xk" 'windmove-delete-up
+  "xj" 'windmove-delete-down
+  "xh" 'windmove-delete-left
+  "xl" 'windmove-delete-right)
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; winner mode
 (require 'winner)
