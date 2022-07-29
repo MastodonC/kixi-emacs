@@ -483,6 +483,11 @@
   "j" 'cider-jack-in-clj)
 
 (kixi-mode-leader-def
+  :keymaps 'clojure-mode-map
+  :infix "s"
+  "l" 'clojure-align)
+
+(kixi-mode-leader-def
   :keymaps 'prog-mode-map
   :infix "g"
   "" '(:ignore t :wk "go")
