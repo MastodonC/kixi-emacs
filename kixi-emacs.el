@@ -369,6 +369,35 @@
 (straight-use-package 'consult-lsp)
 (require 'consult-lsp)
 
+(kixi-mode-leader-def 
+  :definer 'minor-mode
+  :keymaps 'lsp-mode-mode
+  :infix "l"
+  "" '(:ignore t :wk "lsp")
+  "w" '(:ignore t :wk "workspace")
+  "ws" 'lsp
+  "wr" 'lsp-workspace-restart
+  "wq" 'lsp-workspace-shutdown
+  "wd" 'lsp-describe-session
+  "wD" 'lsp-disconnect
+  "=" '(:ignore t :wk "format")
+  "==" 'lsp-format-buffer
+  "=r" 'lsp-format-region
+  "g" '(:ignore t :wk "goto")
+  "gg" 'lsp-find-definition
+  "gi" 'lsp-find-implementation
+  "gr" 'lsp-find-references
+  "gh" 'lsp-treemacs-call-hierarchy
+  "r" '(:ignore t :wk "refactor")
+  "rr" 'lsp-rename
+  "ro" 'lsp-organize-imports
+  "rc" 'lsp-clojure-clean-ns
+  "a" '(:ignore t :wk "actions")
+  "aa" 'lsp-execute-code-action
+  "ai" 'lsp-clojure-add-import-to-namespace
+  "am" 'lsp-clojure-add-missing-libspec)
+
+
 ;; smartparens
 (straight-use-package 'smartparens)
 (require 'smartparens-config)
