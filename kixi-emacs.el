@@ -528,6 +528,16 @@
 (require 'commify)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; project-mode
+(kixi-leader-def
+  :infix "p"
+  "" '(:ignore t :wk "project")
+  "f" 'project-find-file
+  "p" 'project-switch-project
+  "k" 'project-kill-buffers
+  "b" 'consult-project-buffer)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; vterm
 (require 'vterm)
 ;; does it even need the require?
