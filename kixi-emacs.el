@@ -163,7 +163,8 @@
   "b" '(consult-buffer :wk "switch")
   "d" '(kill-this-buffer :wk "kill")
   "e" '(erase-buffer :wk "erase")
-  "r" '(revert-buffer :wk "revert"))
+  "r" '(revert-buffer :wk "revert")
+  "l" 'ibuffer)
 
 (kixi-leader-def
  :infix "E"
