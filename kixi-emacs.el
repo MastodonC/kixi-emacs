@@ -425,7 +425,8 @@
   "" '(:ignore t :wk "eval")
   "e" 'cider-eval-last-sexp
   "r" 'cider-eval-region
-  "b" 'cider-eval-buffer)
+  "b" 'cider-eval-buffer
+  "p" 'cider-pprint-eval-last-sexp)
 
 (kixi-mode-leader-def
   :keymaps 'clojure-mode-map
