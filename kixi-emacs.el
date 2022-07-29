@@ -488,6 +488,28 @@
   "l" 'clojure-align)
 
 (kixi-mode-leader-def
+  :keymaps 'clojure-mode-map
+  :infix "r"
+  "" '(:ignore t :wk "refactor")
+  "#" 'clojure-convert-collection-to-set
+  "'" 'clojure-convert-collection-to-quoted-list
+  "(" 'clojure-convert-collection-to-list
+  "-" 'clojure-toggle-ignore
+  "P" 'clojure-promote-fn-literal
+  "[" 'clojure-convert-collection-to-vector
+  "_" 'clojure-toggle-ignore-surrounding-form
+  "a" 'clojure-add-arity
+  "f" 'clojure-thread-first-all
+  "i" 'clojure-cycle-if
+  "l" 'clojure-thread-last-all
+  "o" 'clojure-cycle-not
+  "p" 'clojure-cycle-privacy
+  "t" 'clojure-thread
+  "u" 'clojure-unwind
+  "w" 'clojure-cycle-when
+  "{" 'clojure-convert-collection-to-map)
+
+(kixi-mode-leader-def
   :keymaps 'prog-mode-map
   :infix "g"
   "" '(:ignore t :wk "go")
