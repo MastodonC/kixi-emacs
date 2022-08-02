@@ -372,7 +372,7 @@
 
 (kixi-mode-leader-def 
   :definer 'minor-mode
-  :keymaps 'lsp-mode-mode
+  :keymaps 'lsp-mode
   :infix "l"
   "" '(:ignore t :wk "lsp")
   "w" '(:ignore t :wk "workspace")
