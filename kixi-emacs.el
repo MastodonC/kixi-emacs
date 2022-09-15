@@ -2,7 +2,7 @@
 ;;
 ;; Filename: kixi-emacs.el
 
-;; Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify) (aggressive-indent) (evil-commentary) (markdown-mode) (separedit))
+;; FIXME-Package-Requires: ((straight) (magit) (evil) (which-key) (doom-themes) (modus-themes) (doom-modeline) (rainbow-delimiters) (general) (evil-collection) (vertico) (orderless) (marginalia) (embark) (consult) (embark-consult) (corfu) (corfu-doc) (cape) (cider) (lsp-mode) (lsp-ui) (consult-lsp) (evil-cleverparens) (flycheck) (consult-flycheck) (flycheck-clj-kondo) (highlight-indent-guides) (orgit) (evil-org) (deadgrep) (command-log-mode) (csv-mode) (rainbow-mode) (commify) (aggressive-indent) (evil-commentary) (markdown-mode) (separedit))
 ;;
 ;; heavily inspired by
 ;; - https://gitlab.com/magus/mes
