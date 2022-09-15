@@ -92,7 +92,7 @@
 (setq evil-want-integration t
       evil-want-keybinding nil
       evil-want-C-u-scroll t)
-(straight-use-package 'evil)
+;; (straight-use-package 'evil)
 (require 'evil)
 
 
@@ -108,7 +108,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; which-key
-(straight-use-package 'which-key)
+;; (straight-use-package 'which-key)
 (setq which-key-idle-delay 0.7)
 (which-key-mode)
 
@@ -117,25 +117,25 @@
 ;; theme and modeline
 ;; (straight-use-package 'doom-themes)
 ;; (load-theme 'doom-nord t)
-(straight-use-package 'modus-themes)
+;; (straight-use-package 'modus-themes)
 (setq modus-themes-italic-constructs t
         modus-themes-bold-constructs nil
         modus-themes-region '(bg-only no-extend))
 (modus-themes-load-themes)
 (modus-themes-load-vivendi)
 
-(straight-use-package 'doom-modeline)
+;; (straight-use-package 'doom-modeline)
 (doom-modeline-mode 1)
 (customize-set-variable 'doom-modeline-height 15)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; rainbow-delimiters
-(straight-use-package 'rainbow-delimiters)
+;; (straight-use-package 'rainbow-delimiters)
 (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Evil General
-(straight-use-package 'general)
+;; (straight-use-package 'general)
 (require 'general)
 (general-evil-setup)
 
@@ -203,7 +203,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; Yet more evil
-(straight-use-package 'evil-collection)
+;; (straight-use-package 'evil-collection)
 (evil-collection-init)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -244,7 +244,7 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; magit
-(straight-use-package 'magit)
+;; (straight-use-package 'magit)
 
 (require 'magit)
 (kixi-leader-def
@@ -274,23 +274,23 @@
 (setq completion-styles '(orderless basic)
         completion-category-defaults nil
         completion-category-overrides '((file (styles partial-completion))))
-(straight-use-package 'orderless)
+;; (straight-use-package 'orderless)
 (require 'orderless)
 
-(straight-use-package 'marginalia)
+;; (straight-use-package 'marginalia)
 (require 'marginalia)
 (marginalia-mode)
 
-(straight-use-package 'consult)
+;; (straight-use-package 'consult)
 (require 'consult)
 
-(straight-use-package 'embark)
+;; (straight-use-package 'embark)
 (require 'embark)
 
-(straight-use-package 'embark-consult)
+;; (straight-use-package 'embark-consult)
 (add-hook 'embark-collect-mode-hook #'consult-preview-at-point)
 
-(straight-use-package 'corfu)
+;; (straight-use-package 'corfu)
 (require 'corfu)
 (global-corfu-mode)
 (customize-set-variable 'corfu-cycle t)
@@ -299,7 +299,7 @@
 (customize-set-variable 'corfu-auto-prefix 2)
 (customize-set-variable 'corfu-echo-documentation 0.75)
 
-(straight-use-package 'corfu-doc)
+;; (straight-use-package 'corfu-doc)
 (require 'corfu-doc)
 (add-hook 'corfu-mode-hook #'corfu-doc-mode)
 
@@ -319,7 +319,7 @@
 (unless (display-graphic-p)
     (corfu-doc-terminal-mode +1))
 
-(straight-use-package 'cape)
+;; (straight-use-package 'cape)
 (require 'cape)
 (add-to-list 'completion-at-point-functions #'cape-file)
 (add-to-list 'completion-at-point-functions #'cape-dabbrev)
@@ -331,7 +331,7 @@
         cider-font-lock-dynamically nil ; use lsp semantic tokens
         cider-eldoc-display-for-symbol-at-point nil ; use lsp
         cider-prompt-for-symbol nil)
-(straight-use-package 'cider)
+;; (straight-use-package 'cider)
 (require 'cider)
 (add-hook 'cider-mode-hook (lambda () (remove-hook 'completion-at-point-functions #'cider-complete-at-point)))
 
@@ -344,7 +344,7 @@
       ;; after last buffer closed, kill workspace
       lsp-keep-workspace-alive nil)
 
-(straight-use-package 'lsp-mode)
+;; (straight-use-package 'lsp-mode)
 (require 'lsp-mode)
 (defun mpenet/lsp-mode-setup-completion ()
   (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
@@ -364,10 +364,10 @@
         lsp-ui-doc-enable nil
         lsp-ui-peek-fontify 'always
         lsp-ui-sideline-show-code-actions nil)
-(straight-use-package 'lsp-ui)
+;; (straight-use-package 'lsp-ui)
 (require 'lsp-ui)
 
-(straight-use-package 'consult-lsp)
+;; (straight-use-package 'consult-lsp)
 (require 'consult-lsp)
 
 (kixi-mode-leader-def 
@@ -400,7 +400,7 @@
 
 
 ;; smartparens
-(straight-use-package 'smartparens)
+;; (straight-use-package 'smartparens)
 (require 'smartparens-config)
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
@@ -411,7 +411,7 @@
 ;; evil cleverparens
 ;; see https://github.com/luxbock/evil-cleverparens/issues/58
 (customize-set-variable 'evil-cleverparens-use-additional-bindings nil)
-(straight-use-package 'evil-cleverparens)
+;; (straight-use-package 'evil-cleverparens)
 (add-hook 'lisp-mode-hook #'evil-cleverparens-mode)
 (add-hook 'clojure-mode-hook #'evil-cleverparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'evil-cleverparens-mode)
@@ -441,22 +441,22 @@
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; aggressive indent
-(straight-use-package 'aggressive-indent)
+;; (straight-use-package 'aggressive-indent)
 (global-aggressive-indent-mode 1)
 
 ;; flycheck
-(straight-use-package 'flycheck)
+;; (straight-use-package 'flycheck)
 
-(straight-use-package 'consult-flycheck)
+;; (straight-use-package 'consult-flycheck)
 (require 'consult-flycheck)
 
-(straight-use-package 'flycheck-clj-kondo)
+;; (straight-use-package 'flycheck-clj-kondo)
 (require 'flycheck-clj-kondo)
 
 (add-hook 'sh-mode-hook #'flycheck-mode)
 (add-hook 'clojure-mode-hook #'flycheck-mode)
 
-(straight-use-package 'highlight-indent-guides)
+;; (straight-use-package 'highlight-indent-guides)
 (add-hook 'prog-mode-hook #'highlight-indent-guides-mode)
 
 (kixi-mode-leader-def
@@ -518,10 +518,10 @@
 
 
 ;; org-mode
-(straight-use-package 'orgit)
+;; (straight-use-package 'orgit)
 (require 'orgit)
 
-(straight-use-package 'evil-org)
+;; (straight-use-package 'evil-org)
 (add-hook 'org-mode-hook #'evil-org-mode)
 (add-hook 'evil-org-mode-hook
           (lambda ()
@@ -529,12 +529,12 @@
 
 ;; commenting
 (setq markdown-command "multimarkdown")
-(straight-use-package 'markdown-mode)
+;; (straight-use-package 'markdown-mode)
 (append auto-mode-alist '("README\\.md" . gfm-mode))
 (require 'markdown-mode)
 
 (setq separedit-default-mode 'markdown-mode)
-(straight-use-package 'separedit)
+;; (straight-use-package 'separedit)
 (require 'separedit)
 
 (kixi-mode-leader-def
@@ -544,20 +544,20 @@
   ";" 'comment-dwim
   "e" 'separedit)
 
-(straight-use-package 'deadgrep)
+;; (straight-use-package 'deadgrep)
 (require 'deadgrep)
 
 (require 'ediff)
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
-(straight-use-package 'command-log-mode)
+;; (straight-use-package 'command-log-mode)
 (require 'command-log-mode)
 (global-command-log-mode 1)
 (kixi-leader-def
   :infix "t"
   "c" '(clm/toggle-command-log-buffer :wk "command log"))
 
-(straight-use-package 'csv-mode)
+;; (straight-use-package 'csv-mode)
 (require 'csv-mode)
 
 (kixi-mode-leader-def
@@ -565,7 +565,7 @@
   "a" 'csv-align-fields
   "u" 'csv-unalign-fields)
 
-(straight-use-package 'rainbow-mode)
+;; (straight-use-package 'rainbow-mode)
 (require 'rainbow-mode)
 
 (require 'evil-commentary)
@@ -581,7 +581,7 @@
       (cider-interactive-eval
        (concat "(nextjournal.clerk/show! \"" filename "\")")))))
 
-(straight-use-package 'commify)
+;; (straight-use-package 'commify)
 (require 'commify)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
