@@ -290,8 +290,9 @@
 (customize-set-variable 'corfu-auto-prefix 2)
 (customize-set-variable 'corfu-echo-documentation 0.75)
 
-(require 'corfu-doc)
-(add-hook 'corfu-mode-hook #'corfu-doc-mode)
+;; FIXME: Migrate to corfu-popupinfo in a way that works in the terminal
+;; (require 'corfu-doc)
+;; (add-hook 'corfu-mode-hook #'corfu-doc-mode)
 
 (straight-use-package
  '(popon :type git :repo "https://codeberg.org/akib/emacs-popon.git"))
