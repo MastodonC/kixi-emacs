@@ -113,16 +113,7 @@
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; theme and modeline
-;; (require 'doom-themes)
-;; (load-theme 'doom-nord t)
-(require 'modus-themes)
-(setq modus-themes-italic-constructs t
-        modus-themes-bold-constructs nil
-        modus-themes-region '(bg-only no-extend))
-(modus-themes-load-themes)
-(modus-themes-load-vivendi)
-
+;; modeline
 (require 'doom-modeline)
 (doom-modeline-mode 1)
 (customize-set-variable 'doom-modeline-height 15)
